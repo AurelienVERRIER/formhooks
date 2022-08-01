@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const App = () => {
+function App() {
 
   const  [] = useState(0);
   const [email, setEmail] = useState({ mail: false});
@@ -46,7 +46,7 @@ const App = () => {
     setLastName({e.target.value})
   }
  
-  
+
   return (
 
     <main>
@@ -59,9 +59,7 @@ const App = () => {
         </h1>
         <h2>{mail}</h2>
       </section>
-
-      ) : (
-
+    ) : (
       <form onSubmit={this.handleSubmit}>
       <div className="form-group">
         <label htmlFor="inputFirstName">First Name</label>
@@ -80,12 +78,12 @@ const App = () => {
         <label htmlFor="inputEmail1">Email address</label>
         <input type="email" onChange={handleEmailChange} className="form-control is-valid" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
       </div>
-      ) : (
+    ) : (
       <div className="form-group">
         <label htmlFor="inputEmail1">Email address</label>
         <input type="email" onChange={handleEmailChange} className="form-control is-invalid" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
       </div>
-      )}
+    )}
 
 
     {passwordIsValid ? (
@@ -109,10 +107,9 @@ const App = () => {
       <button type="submit"  className="btn btn-primary">Submit</button>
 
       </form>
-      )
-    
     </main>
-  );
-}
+    );
+  }
+
 
 export default function App
