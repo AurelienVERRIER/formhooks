@@ -4,24 +4,23 @@ import React, { useState } from 'react';
 function App() {
 
   const  [] = useState(0);
-  const [email, setEmail] = useState({ mail: false});
-  const [validPassword, setValidPassword] = useState({ valid: false});
-  const [rememberMe, setRememberMe] = useState({ remember: false});
-  const [submitted, setSubmitted] = useState({ submitted: false});
-  const [firstname, setFirstname] = useState({ firstName: ''});
-  const [lastname, setLastname] = useState({ lastName: ''});
+  const [email, setEmail] = useState('');
+  const [validPassword, setValidPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value)
-    if (/^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(this.state.email)) {
-      setEmail(true)
+        if (/^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        setEmail(e.target.value)
   }}
 
 
   const handlePasswordChange = (e) => {
     setValidPassword(e.target.value)
-      if (this.state.password.length >5) {
-      setValid(true)
+      if (password.length >5) {
+      setValidPassword(true)
   }}
 
   
@@ -55,20 +54,22 @@ function App() {
       
       <section >
         <h1 className="border border-success rounded">
-          Bienvenue {firstName} {lastName}
+          Bienvenue {firstname} {lastname}
         </h1>
-        <h2>{mail}</h2>
+        <h2>{email}</h2>
       </section>
     ) : (
-      <form onSubmit={this.handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="inputFirstName">First Name</label>
-        <input type="text" onChange={handleFirstNameChange} className="form-control" id="inputFirstName"  placeholder="Enter your First Name"/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="inputLastName">First Name</label>
-        <input type="text" onChange={handleLasttNameChange} className="form-control" id="inputLasttName"  placeholder="Enter your Last Name"/>
-      </div>
+      <section>
+        <form onSubmit={this.handleSubmit}/>
+        <div className="form-group">
+          <label htmlFor="inputFirstName">First Name</label>
+          <input type="text" onChange={handleFirstNameChange} className="form-control" id="inputFirstName"  placeholder="Enter your First Name"/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="inputLastName">First Name</label>
+          <input type="text" onChange={handleLasttNameChange} className="form-control" id="inputLasttName"  placeholder="Enter your Last Name"/>
+        </div>
+      </section>
     )}
       
 
@@ -104,11 +105,11 @@ function App() {
         <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
       </div>
 
-      <button type="submit"  className="btn btn-primary">Submit</button>
+      <button type="submit"  className="btn btn-primary" onClick={handleSubmit}>Submit</button>
       
   </div>
   );
 }
 
 
-export default function App
+export default App
