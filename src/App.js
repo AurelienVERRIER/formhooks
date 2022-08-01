@@ -12,44 +12,44 @@ function App() {
   const [lastname, setLastname] = useState({ lastName: ''});
 
   const handleEmailChange = (e) => {
-    setEmail({email: e.target.value})
+    setEmail(e.target.value)
     if (/^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(this.state.email)) {
-      setMail({true})
+      setEmail(true)
   }}
 
 
   const handlePasswordChange = (e) => {
-    setValid({password: e.target.value})
+    setValidPassword(e.target.value)
       if (this.state.password.length >5) {
-      setValid({true})
+      setValid(true)
   }}
 
   
   const handleRememberMeChange = (e) => {
-    setRemember({true})
+    setRememberMe(true)
   }
 
   
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (mail && valid) {
-      setSubmitted({true})
+      setSubmitted(true)
   }}
 
   
-  handleFirstNameChange = (e) => {
-    setfirstName({e.target.value})
+  const handleFirstNameChange = (e) => {
+    setFirstname(e.target.value)
   }
 
 
-  handleLasttNameChange = (e) => {
-    setLastName({e.target.value})
+  const handleLasttNameChange = (e) => {
+    setLastname(e.target.value)
   }
  
 
   return (
 
-    <main>
+  <div>
     
     {mail ? (
       
@@ -89,12 +89,12 @@ function App() {
     {passwordIsValid ? (
       <div className="form-group">
         <label htmlFor="inputPassword1">Password</label>
-        <input type="password" onChange={this.handlePasswordChange} className="form-control is-valid" id="inputPassword1" placeholder="Password"/>
+        <input type="password" onChange={handlePasswordChange} className="form-control is-valid" id="inputPassword1" placeholder="Password"/>
       </div>
       ) : (
       <div className="form-group">
         <label htmlFor="inputPassword1">Password</label>
-        <input type="password" onChange={this.handlePasswordChange} className="form-control is-invalid" id="inputPassword1" placeholder="Password"/>
+        <input type="password" onChange={handlePasswordChange} className="form-control is-invalid" id="inputPassword1" placeholder="Password"/>
       </div>
     )}
 
@@ -105,11 +105,10 @@ function App() {
       </div>
 
       <button type="submit"  className="btn btn-primary">Submit</button>
-
-      </form>
-    </main>
-    );
-  }
+      
+  </div>
+  );
+}
 
 
 export default function App
